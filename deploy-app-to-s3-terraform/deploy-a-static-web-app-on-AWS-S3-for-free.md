@@ -10,7 +10,7 @@ For this tutorial, you will need
 * [Terraform CLI](https://www.terraform.io/downloads.html) to set up our infrastructure on AWS
 * [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv1.html) which has been [configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) with the IAM user API keys
 
-AWS has a [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) so running the steps below should not cost you anything. In any case, make sure you TERMINATE all your resources after completing this tutorial to avoid any unwanted charges in your AWS account.
+AWS has a [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) so running the steps below should not cost you anything. In any case, make sure you [TERMINATE](#terminating-created-resources) all your resources after completing this tutorial to avoid any unwanted charges in your AWS account.
 
 ## Preparing the package
 I presume you already have a static react web app which you want to deploy. If not, you can pull a sample web application from my repository. I will be writing this guide using the indecision-app below. It has been build using yarn and webpack, though the steps should be easily reproducible with other package managers (npm, gulp, etc.)
@@ -47,7 +47,7 @@ terraform {
 }
 ```
 
-* To deefine local variables we will be using later on, add
+* To define local variables we will be using later on, add
 ```tf
 locals {
   s3_origin_id = "myappS3Origin"
@@ -96,7 +96,7 @@ $ export AWS_ACCESS_KEY_ID=<YOUR_AWS_ACCESS_KEY_ID>
 $ terraform init
 ```
 
-* Spin up the AWS infra, type y when asked for confirmation
+* Spin up the AWS infra, type <code>y</code> when asked for confirmation
 ```
 $ terraform apply
 ```
@@ -112,7 +112,7 @@ $ aws s3 sync public/ s3://my_app
 ```
 
 ## Accessing deployed web app
-You should be able to access the application at https://s3-ap-southeast-1.amazonaws.com/my_app/index.html. This is basically the Object URL of our S3 bucket <code>my_app</code> where the app is deployed.
+You should be able to access the application at https://s3-ap-southeast-1.amazonaws.com/my_app/index.html. This is basically the <code>Object URL</code> of the <code>index.html</code> file inside our S3 bucket <code>my_app</code>.
 
 ## Terminating created resources
 AWS has a [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) so running the steps in this tutorial should not cost you anything. In any case, do TERMINATE all your resources to avoid any unwanted charges by running the following command in your project dir
