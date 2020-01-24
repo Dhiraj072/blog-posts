@@ -1,11 +1,11 @@
-I was building an [app](https://github.com/Dhiraj072/yrandom) to display random youtube videos. For the app, I needed an easy way to get a random english word. Suprisingly, finding an API which fits my requirements was harder than expected. Finally, I ended up writing my own [random word generator](https://github.com/Dhiraj072/random-word-generator) using [Datamuse API](https://www.datamuse.com/api/).
+I was building an [app](https://github.com/Dhiraj072/yrandom) to display random youtube videos. For the app, I needed an easy way to get a random english word. Suprisingly, finding an API which fit my requirements was harder than I expected. Finally, I ended up writing my own [random word generator](https://github.com/Dhiraj072/random-word-generator) using [Datamuse API](https://www.datamuse.com/api/).
 
 # Why I couldn't use existing options?
 I analysed a bunch of APIs, and none of them suited my requirements
 * [Wordnik](https://developer.wordnik.com/) - Rich API with lots of documentation, but they were taking more than 7 days to send me an API key unless I donated money.
-* [WordsAPI](https://www.wordsapi.com/) - Sleak website with straightforward random word API. But the free plan allowed only 2500 requests per day, which is a bit too low in my opinion.
-* [random-word-api](https://random-word-api.herokuapp.com) - [RazorSh4rk](https://github.com/RazorSh4rk/random-word-api) built and deployed this API to use for everyone. It's pretty good but it generates a "random" word by choosing from a static list of words. Due to this static structure, I believe the words may get repeated too frequently.
-* [DataMuse API](https://www.datamuse.com/api/) - This was most promising with 100,000 free requests per day. 
+* [WordsAPI](https://www.wordsapi.com/) - Sleak website with straightforward random word API, but the free plan allowed only 2500 requests per day, which is a bit too low in my opinion.
+* [random-word-api](https://random-word-api.herokuapp.com) - Pretty good except that it generates a "random" word by choosing from a static list of words, whcih may result in words getting repeated frequently.
+* [DataMuse API](https://www.datamuse.com/api/) - This was most promising with 100,000 free requests per day, though they didn't have a straightforward random word api. 
 
 Finally, I decided to write my own random word generator java library using the DataMuse word-search API.
 
